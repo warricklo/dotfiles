@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#
+# X profile
+#
+
+#
+# Autostart
+#
+
+sxhkd &
+feh --no-fehbg --bg-fill ${HOME}/.local/backgrounds/background
+picom --experimental-backends --config ${HOME}/.config/picom/picom.conf &
+polybar bar &
+dunst &
+
