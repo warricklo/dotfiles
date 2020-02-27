@@ -1,0 +1,257 @@
+;
+; Polybar configuration file
+;
+; vim: ft=dosini
+;
+
+;
+; Colors
+;
+
+[colors]
+
+; Color palette
+
+red = #bc5653
+green = #909d63
+yellow = #ebc17a
+blue = #7eaac7
+magenta = #aa6292
+
+gray = #636363
+black = #2c2c2c
+white = #d6d6d6
+
+; Main colors
+
+background = ${self.black}
+foreground = ${self.white}
+
+primary = ${self.blue}
+secondary = ${self.yellow}
+
+;
+; Bar
+;
+
+[bar/bar]
+
+; Bar properties
+
+width = 100%
+height = 32
+radius = 0
+fixed-center = true
+
+; Colors
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; Border
+
+border-size = 0
+border-color = ${colors.background}
+
+; Padding and margin
+
+padding = 1
+module-margin = 1
+
+; Fonts
+
+font-0 = "VictorMono Nerd Font:style=Bold:size=10"
+font-1 = "Noto Sans CJK TC:style=Medium:size=10"
+
+; Modules
+
+modules-left = bspwm xwindow
+modules-center = date
+modules-right = mpd xkeyboard alsa wlan eth battery
+
+; Seperator
+
+separator = "/"
+
+; Cursor
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+;
+; Modules
+;
+
+; bspwm
+
+[module/bspwm]
+
+type = internal/bspwm
+
+label-focused = "%icon%"
+label-focused-background = ${colors.gray}
+label-focused-padding = 1
+
+label-occupied = "%icon%"
+label-occupied-padding = 1
+
+label-urgent = "%icon%"
+label-urgent-padding = 1
+
+label-empty = "%icon%"
+label-empty-padding = 1
+
+ws-icon-0 = "1;1"
+ws-icon-1 = "2;2"
+ws-icon-2 = "3;3"
+ws-icon-3 = "4;4"
+ws-icon-4 = "5;5"
+ws-icon-5 = "6;6"
+ws-icon-6 = "7;7"
+ws-icon-7 = "8;8"
+ws-icon-8 = "9;9"
+
+; Xorg
+
+[module/xwindow]
+
+type = internal/xwindow
+
+label = "%title:0:25:…%"
+
+[module/xkeyboard]
+
+type = internal/xkeyboard
+
+format = "<label-layout>"
+format-prefix = "  "
+format-prefix-foreground = ${colors.gray}
+label-layout = "%layout%"
+
+; Date and time
+
+[module/date]
+
+type = internal/date
+
+label = "%date% %time%"
+
+date = "%Y-%m-%d"
+time = "%H:%M:%S"
+
+interval = 0.5
+
+; Network
+
+[module/eth]
+
+type = internal/network
+
+interface = eth0
+
+format-connected = "<label-connected>"
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.gray}
+label-connected = "Connected"
+
+interval = 2.5
+
+[module/wlan]
+
+type = internal/network
+
+interface = wlan0
+
+format-connected = "<label-connected>"
+format-connected-prefix = "  "
+format-connected-prefix-foreground = ${colors.gray}
+label-connected = "%essid%"
+
+interval = 2.5
+
+; Music and sounds
+
+[module/alsa]
+
+type = internal/alsa
+
+format-volume = "<ramp-volume> <label-volume>"
+label-volume = "%percentage%%"
+
+format-muted = "muted"
+format-muted-prefix = "  "
+format-muted-foreground = ${colors.gray}
+
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
+ramp-volume-foreground = ${colors.gray}
+
+ramp-headphones-0 = ""
+ramp-headphones-foreground = ${colors.gray}
+
+[module/mpd]
+
+type = internal/mpd
+
+format-online = "<label-song> | <icon-prev> <icon-stop> <toggle> <icon-next>"
+format-online-prefix = "  "
+format-online-prefix-foreground = ${colors.gray}
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+icon-prev = " "
+icon-next = " "
+icon-stop = " "
+icon-play = " "
+icon-pause = " "
+
+; Battery
+
+[module/battery]
+
+type = internal/battery
+
+battery = BAT0
+adapter = ADP1
+
+format-full = "<ramp-capacity> <label-full>"
+
+format-charging = "<animation-charging> <label-charging>"
+
+format-discharging = "<ramp-capacity> <label-discharging>"
+
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+ramp-capacity-foreground = ${colors.gray}
+
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-4 = " "
+animation-charging-foreground = ${colors.gray}
+animation-charging-framerate = 1000
+
+animation-discharging-0 = " "
+animation-discharging-1 = " "
+animation-discharging-2 = " "
+animation-discharging-3 = " "
+animation-discharging-4 = " "
+animation-discharging-foreground = ${colors.gray}
+animation-discharging-framerate = 1000
+
+poll-interval = 2.5
+
+;
+; Settings
+;
+
+[global/wm]
+
+margin-bottom = 8
+
