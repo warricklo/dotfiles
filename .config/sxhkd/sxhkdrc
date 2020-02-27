@@ -1,0 +1,132 @@
+#
+# sxhkd configuration file
+#
+
+#
+# Application hotkeys
+#
+# WM independent hotkeys.
+# Common applications use [ SUPER + KEY ];
+# all others use [ SUPER + ALT + KEY ].
+#
+
+# Terminal
+
+super + Return
+  ${TERMINAL}
+
+# dmenu
+
+super + space
+  dmenu_run
+
+# Browser
+
+super + w
+  ${BROWSER}
+
+# Terminal applications
+
+super + alt + e
+  ${TERMINAL} -e ${EDITOR}
+
+super + alt + f
+  ${TERMINAL} -e ${FILE}
+
+# Miscellaneous
+
+super + alt + {c,e,n,m,t}
+  ${TERMINAL} -e {calcurse,neomutt,newsboat,ncmpcpp,tty-clock}
+
+#
+# System hotkeys
+#
+# WM independent hotkeys.
+#
+
+# Audio
+
+XF86AudioMute
+  amixer sset Master toggle
+
+XF86Audio{Lower,Raise}Volume
+  amixer sset Master 1%{-,+}
+
+super + {Down,Up}
+  amixer sset Master 1%{-,+}
+
+# Brightness
+
+XF86MonBrightness{Down,Up}
+  xbacklight -{dec,inc} 1
+
+super + {Left,Right}
+  xbacklight -{dec,inc} 1
+
+# Screenshot
+
+Print
+  maim ${HOME}/pictures/screenshots/$(date +%Y-%m-%dT%H:%M:%S).png
+
+#
+# bspwm hotkeys
+#
+# These hotkeys are specifically for use with bspwm. They may conflict
+# with other window managers.
+#
+
+# Quit bspwm
+
+super + shift + Escape
+  bspc quit
+
+# Nodes
+
+# Close node
+super + q
+  bspc node -c
+
+# Set state of selected window
+super + {t,shift + t,f,m}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Focus and swap
+
+# Focus/swap node in the direction
+super + {_,shift +} {h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
+
+# Focus last node
+super + Tab
+  bspc node -f last
+
+# Swap with biggest node
+super + shift + Return
+  bspc node -s biggest.local
+
+# Focus/move desktop
+super + {_,shift +} {1-9}
+  bspc {desktop -f,node -d} focused:^{1-9}
+
+# Cycle desktops
+super + {comma,period}
+  bspc desktop -f {prev,next}.local
+
+# Cycle monitors
+super + bracket{left,right}
+  bspc monitor -f {west,east}
+
+# Move and resize
+
+# Expand a side outward
+super + ctrl + {h,j,k,l}
+  bspc node -z {left -16 0, bottom 0 16, top 0 -16, right 16 0}
+
+# Contract a side inward
+super + ctrl + shift + {h,j,k,l}
+  bspc node -z {right -16 0, top 0 16, bottom 0 -16, left 16 0}
+
+# Move a floating window
+super + alt + shift + {h,j,k,l}
+  bspc node -v [-16 0,0 16,0 -16,16 0}
+
