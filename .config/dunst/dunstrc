@@ -1,0 +1,108 @@
+#
+# Dunst configuration file
+#
+# vim: ft=cfg
+#
+
+#
+# Global
+#
+
+[global]
+
+  # Display
+
+  monitor = 0
+  geometry = "256x5-8+40"
+  indicate_hidden = yes
+  shrink = no
+  transparency = 0
+  padding = 4
+  horizontal_padding = 4
+  frame_width = 2
+  frame_color = "#202020"
+  corner_radius = 0
+  separator_height = 2
+  separator_color = frame
+  sort = yes
+  idle_threshold = 120
+
+  # Text
+
+  font = "VictorMono Nerd Font"
+  markup = full
+  format = "<b>%s</b> <i>%p</i>\n%b"
+  alignment = left
+  word_wrap = yes
+  show_age_threshold = 60
+  ellipsize = middle
+  ignore_newline = no
+  stack_duplicates = true
+  hide_duplicate_count = false
+  show_indicators = yes
+
+  # Icons
+
+  icon_position = left
+  max_icon_size = 32
+
+  # History
+
+  sticky_history = yes
+  history_length = 16
+
+  # Mouse
+
+  mouse_left_click = do_action
+  mouse_middle_click = close_all
+  mouse_right_click = close_current
+
+  # Window properties
+
+  title = Dunst
+  class = Dunst
+
+  # Miscellaneous
+
+  dmenu = /usr/bin/dmenu -p dunst:
+  browser = /usr/bin/firefox --new-tab
+  always_run_script = true
+  startup_notification = false
+  verbosity = info
+
+#
+# Shortcut hotkeys
+#
+
+[shortcuts]
+
+  close = ctrl+space
+  close_all = ctrl+mod1+space
+  history = ctrl+mod1+period
+  context = ctrl+mod1+slash
+
+#
+# Urgency properties
+#
+
+[urgency_low]
+
+  background = "#2c2c2c"
+  foreground = "#d6d6d6"
+  frame_color = "#7eaac7"
+  timeout = 4
+
+[urgency_normal]
+
+  background = "#2c2c2c"
+  foreground = "#d6d6d6"
+  frame_color = "#7eaac7"
+  timeout = 8
+
+[urgency_critical]
+
+  background = "#bc5653"
+  foreground = "#d6d6d6"
+  frame_color = "#7eaac7"
+  timeout = 0
+
