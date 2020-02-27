@@ -1,0 +1,118 @@
+#
+# Alacritty configuration file
+#
+
+#
+# Window properties
+#
+
+window:
+
+  padding:
+
+    x: 16
+    y: 16
+
+  title: Alacritty
+
+  class:
+
+    instance: Alacritty
+    general: Alacritty
+
+#
+# Fonts
+#
+
+font:
+
+  normal:
+
+    family: JetBrainsMono Nerd Font
+    style: Regular
+
+  bold:
+
+    family: JetBrainsMono Nerd Font
+    style: Bold
+
+  italic:
+
+    family: JetBrainsMono Nerd Font
+    style: Italic
+
+  bold_italic:
+
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+
+  size: 10
+
+  offset:
+
+    x: 1
+    y: 1
+
+#
+# Colors
+#
+
+colors:
+
+  primary:
+
+    background: '0x2c2c2c'
+    foreground: '0xd6d6d6'
+
+  cursor:
+
+    text: '0x2c2c2c'
+    cursor: '0xd9d9d9'
+
+  normal:
+
+    black: '0x1c1c1c'
+    red: '0xbc5653'
+    green: '0x909d63'
+    yellow: '0xebc17a'
+    blue: '0x7eaac7'
+    magenta: '0xaa6292'
+    cyan: '0x86d3ce'
+    white: '0xcacaca'
+
+  bright:
+
+    black: '0x636363'
+    red: '0xbc5653'
+    green: '0x909d63'
+    yellow: '0xebc17a'
+    blue: '0x7eaac7'
+    magenta: '0xaa6292'
+    cyan: '0x86d3ce'
+    white: '0xf7f7f7'
+
+  dim:
+
+    black: '0x232323'
+    red: '0x74423f'
+    green: '0x5e6547'
+    yellow: '0x8b7653'
+    blue: '0x556b79'
+    magenta: '0x6e4962'
+    cyan: '0x5c8482'
+    white: '0x828282'
+
+#
+# Background opacity
+#
+
+background_opacity: 0.85
+
+#
+# Scrolling
+#
+
+scrolling:
+
+  history: 10000
+
